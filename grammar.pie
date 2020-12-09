@@ -1,0 +1,22 @@
+// Guessing game
+use random
+
+number = random.int(1,100);
+tries = 10
+out "Guess a number between 1 and 100, you have 10 tries";
+guess = get "> ";
+
+do {
+  if (guess > number){
+     out "To big! You have "+tries+" more tries";
+  }elsif (guess < number){
+     out "To tiny! You have "+tries+" more tries";
+  } elsif (guess == number){
+    out "You got it! With "+tries+" more tries!";
+  }
+  tries--;
+} while(tries > 0);
+
+// array
+array<3> = ["1", "e", "$"];
+//much more coming.
