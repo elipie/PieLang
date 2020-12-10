@@ -1,2 +1,2 @@
 #pragma once
-std::string file;
+int setup();
