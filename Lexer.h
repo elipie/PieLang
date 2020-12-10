@@ -3,7 +3,7 @@ struct Token{};
 enum class types{};
 class lexer{};
 
-int stringify(intorsomething){
+int stringify(int intorsomething){
   std::to_string(intorsomething);
   
 }
