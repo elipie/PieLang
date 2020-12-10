@@ -28,4 +28,9 @@ if(pie == "gud"){
 }else {
   out "Pie good";
 }
+func add(a,b) -> i32{
+  @ a + b;
+ }
+ add(1,2);
+ 
 ```
