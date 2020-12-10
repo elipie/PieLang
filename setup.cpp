@@ -1,8 +1,6 @@
-#include <iostream>
-
-std::string file;
-int setup() {
-  std::cout << "Filename: ";
-  std::cin >> file; //must find different way.
-  return 0;
+#include <fstream>
+int setup(){
+  ofstream main;
+  main.open("tests.pie"); // once release, we change this to main.pie
+  
 }
