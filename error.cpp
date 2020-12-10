@@ -24,5 +24,10 @@ namespace Errors{
       return 1;
 
     }
+    int ParserError(std::string msg, int line)
+    {
+      std::cout << "ParserError: On line " << line << ".\n"<<msg;
+      
+    }
 
 };
