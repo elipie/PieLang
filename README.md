@@ -9,8 +9,13 @@ This is also my first *official* language that I have ever made!
 ```cpp
 
 out "Hello, world";
-name = "Elipie":
+name = "Elipie";
+
 for(i = 0; i < 10; i++){
   out i;
 }
+do{
+  i = 10;
+  i --;
+}while(i > 0);
 ```
