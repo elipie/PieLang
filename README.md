@@ -18,4 +18,14 @@ do{
   i = 10;
   i --;
 }while(i > 0);
+array<2> = ["pie", "good"];
+// control flow
+pie = "gud";
+if(pie == "gud"){
+  out "yes.";
+}elsif(pie != "gud"){
+  out "no";
+}else {
+  out "Pie good";
+}
 ```
