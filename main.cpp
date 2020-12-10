@@ -1,7 +1,7 @@
 #include <iostream>
 #include "error.h"
 int main(){
-  Errors::SyntaxError("e", 1);
+  Errors::SyntaxError("TEst", 1);
   //nothing yet
 }
 
