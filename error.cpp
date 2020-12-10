@@ -12,4 +12,22 @@ namespace Errors{
       return 1;
 
     }
+    int UnexpectedEOF(std::string msg, int line){
+      
+      std::cout << "Unexpected EOF(end of file) near line "<<line<<"\n"<<msg;
+      return 1;
+
+    }
+    int UnknownToken(std::string token, int line){
+      std::cout << "Unknown token: "<< token << " on line " << line;  
+      
+      return 1;
+
+    }
+    int ParserError(std::string msg, int line)
+    {
+      std::cout << "ParserError: On line " << line << ".\n"<<msg;
+      
+    }
+
 };
