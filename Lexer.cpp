@@ -33,9 +33,7 @@ enum class Types{
 };
 class lexer{
   int mainLexer(){
-    for(int line = 0; line > 0 ; line++){
-      //place holder.
-    }
+    
     return 0;
   }  
 };

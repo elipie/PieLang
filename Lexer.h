@@ -5,5 +5,5 @@ class lexer{};
 
 int stringify(int intorsomething){
   std::to_string(intorsomething);
-  
+  return 0;
 }
