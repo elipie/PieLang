@@ -1,7 +1,9 @@
 #include <iostream>
 #include "error.h"
-int main(){
-  typedef std::string Name;
+#include "helpers.h"
+
+int main(){ 
+  
   Errors::SyntaxError("Test", 1);
   //nothing yet
 }
