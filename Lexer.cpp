@@ -1,5 +1,6 @@
 // Lexer.cpp
 #include <iostream>
+#include "error.h"
 #include "setup.h"
 #include "Lexer.h"
 #include <string>
@@ -33,8 +34,83 @@ int Lexer::mainLexer(){
                 tokenstream.push_back("PLUS"); // find out how to append the plus
               case '-':
                 tokenstream.push_back("MINUCE");
-              case isdigit(c):
-                      
+              //case isdigit(c):
+              //  tokenstream.push_back("NUMBER");
+              //case isalpha(c):
+              //  tokenstream.push_back("INITI");
+              case '*':
+                tokenstream.push_back("MUL");
+              case '/':
+                tokenstream.push_back("DIV");
+              case ' ':
+                continue;
+              case '\n':
+                continue;
+              case 'a':
+              case 'b':
+              case 'c':
+              case 'd':
+              case 'e':
+              case 'f':
+              case 'g': 
+              case 'h':
+              case 'j':
+              case 'i':
+              case 'k':
+              case 'l':
+              case 'm':
+              case 'n':
+              case 'o':
+              case 'p':
+              case 'q':
+              case 'r':
+              case 's':
+              case 'u':
+              case 't':
+              case 'v':
+              case 'w':
+              case 'y':
+              case 'x':
+              case 'z':
+              case 'A':
+              case 'B':
+              case 'C':
+              case 'D':
+              case 'E':
+              case 'F':
+              case 'G':
+              case 'H':
+              case 'I':
+              case 'J':
+              case 'K':
+              case 'L':
+              case 'M':
+              case 'N':
+              case 'O':
+              case 'P':
+              case 'Q':
+              case 'R':
+              case 'S':
+              case 'W':
+              case 'X':
+              case 'Y':
+              case 'Z':
+                tokenstream.push_back("INITI");
+              case 1:
+              case 0:
+              case 2:
+              case 3:
+              case 4:
+              case 5:
+              case 6:
+              case 7:
+              case 8:
+              case 9:
+                tokenstream.push_back("ONE_NUMBER");
+
+              default:
+                Errors::UnknownToken(c, 0);
+              
 
             }
         }
