@@ -52,7 +52,7 @@ int Lexer::mainLexer(){
               case 'd':
               case 'e':
               case 'f':
-              case 'g':
+              case 'g': 
               case 'h':
               case 'j':
               case 'i':
