@@ -18,7 +18,7 @@ namespace Errors{
         return 1;
 
     }
-    int UnknownToken(std::string token, int line){
+    int UnknownToken(char token, int line){
         std::cout << "Unknown token: "<< token << " on line " << line;  
       
         return 1;
