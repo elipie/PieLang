@@ -1,10 +1,12 @@
+//main.cpp
 #include <iostream>
 #include "error.h"
 #include "helpers.h"
+#include "Lexer.h"
 
 int main(){ 
-  
-  Errors::SyntaxError("Test", 1);
+  Lexer obj;
+  obj.mainLexer();  
+
   //nothing yet
 }
-

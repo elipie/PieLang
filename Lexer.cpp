@@ -1,39 +1,59 @@
+// Lexer.cpp
 #include <iostream>
 #include "setup.h"
+#include "Lexer.h"
+#include <string>
+#include <fstream>
+#include <vector>
+std::vector<std::string> tokenstream;
 
-struct Token{
-  std::string type;
-  std::string value; // This means i will turn it into a string example: 2 would turn into "2"
-  // other 
-  int line;
-};  
-enum class Types{
-  Number,
-  DoubleQuote,
-  Quote,
-  Initializer,
-  LessThan,
-  LargerThan,
-  Equal,
-  SlashOrComment,
-  AtOrReturn,
-  Pipe,
-  LParen,
-  RParen,
-  LCurly,
-  RCurly,
-  RBracket,
-  LBracket,
-  Colon,
-  SemiColon,
-  Star,
-  Plus,
-  Caret,
-  //more later.
-};
-class lexer{
-  int mainLexer(){
+int nums[10] = {0,1,2,3,4,5,6,7,8,9};
+int Lexer::mainLexer(){
+
+
+    std::ifstream pie_file("tests.pie");
+    std::string tp;
+    // std::string code;
+    while(getline(pie_file, tp)){
+        code += tp;
+        code += '\n';
+        /*      
+
+        */
+    }
+
+    for (; i < code.size(); i++) {
+        char c = code[i];
+        std::cout << c << std::endl;
+        if(c == '/' && peek() == '/') {
+            while (curr() != '\n') i++;
+        } else {
+            switch (c) {
+              case '+':
+                tokenstream.push_back("PLUS"); // find out how to append the plus
+              case '-':
+                tokenstream.push_back("MINUCE");
+              case isdigit(c):
+                      
+
+            }
+        }
+        // if()
+        // std::cout.flush();
+    }
     
     return 0;
-  }  
-};
+}
+
+char Lexer::peek() {
+    return code[i+1];
+}
+
+char Lexer::curr() {
+    return code[i];
+}
+
+int stringify(int intorsomething) {
+  std::to_string(intorsomething);
+  return 0;
+}
