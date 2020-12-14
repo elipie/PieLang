@@ -6,10 +6,14 @@
 #include <string>
 #include <fstream>
 #include <vector>
-std::vector<std::string> tokenstream;
+#include <map>
+#include <variant>
+//std::vector<std::string> tokenstream;
+typedef std::map<std::variant<int, std::string>, std::variant<int, std::string>> Dict;
 
 int nums[10] = {0,1,2,3,4,5,6,7,8,9};
 int Lexer::mainLexer(){
+    Dict tokenstream;
     int line = 0;
     std::string reserved[14] = {"out","get","if", "elsif", "els", "do", "while", "true", "false", "func", "i32", "str", "char","null"}; // and will be && and or will be ||
     int placeholder = 0;
@@ -25,6 +29,8 @@ int Lexer::mainLexer(){
         */
     }
 
+    
+    
 
     for (; i < code.size(); i++) {
         
@@ -35,17 +41,17 @@ int Lexer::mainLexer(){
         } else {
             switch (c) {
               case '+':
-                tokenstream.push_back("PLUS"); // find out how to append the plus
+                tokenstream["PLUS: "] = c; // find out how to append the plus
               case '-':
-                tokenstream.push_back("MINUCE");
               //case isdigit(c):
               //  tokenstream.push_back("NUMBER");
               //case isalpha(c):
               //  tokenstream.push_back("INITI");
               case '*':
-                tokenstream.push_back("MUL");
+                tokenstream["STAR"] = c;
+
               case '/':
-                tokenstream.push_back("DIV");
+                tokenstream["DIV"] =c;
               case ' ':
                 continue;
               case '\n':
@@ -67,7 +73,7 @@ int Lexer::mainLexer(){
               case 'l':
               case 'm':
               case 'n':
-              case 'o':
+              
               case 'p':
               case 'q':
               case 'r':
@@ -102,7 +108,8 @@ int Lexer::mainLexer(){
               case 'X':
               case 'Y':
               case 'Z':
-                tokenstream.push_back("INITI");
+                //std::string full_string = 
+                tokenstream["INITI"] = c;
               
               //case 1:
               //case 0:
@@ -120,37 +127,47 @@ int Lexer::mainLexer(){
                 continue;
               
               case '(':
-                tokenstream.push_back("LPAREN");
+                tokenstream["LPAREN"] = c;
               case ')':
-                tokenstream.push_back("RPAREN");
+                tokenstream["RPAREN"] =c;
               case  '[':
-                tokenstream.push_back("RBRACKET");
+                tokenstream["LBRACKET"] =c;
               case ']':
-                tokenstream.push_back("LBRACKET");
+                tokenstream["RBRACKET"] =c;
               case '{':
-                tokenstream.push_back("LCURLY");
+                tokenstream["LCURLY"] = c;
               case '}':
-                tokenstream.push_back("RCURLY");
+                tokenstream["RCURLY"] = c;
               case '<':
-                tokenstream.push_back("LESS_THAN");
+                tokenstream["LESS_THAN"] = c;
               case '>':
-                tokenstream.push_back("LARGER_THAN");
+                tokenstream["LARGER_THAN"] = c;
 
               case '&':
                 if(c == '&' && peek() == '&'){
                   while(curr() != '\n')i++;
-                  tokenstream.push_back("AND");
+                  tokenstream["AND"] = "||";
                 }else{
-                  tokenstream.push_back("ANDSYMBOL");
+                  tokenstream["ANDSYMBOL: "]=c;
                 }
               case '|':
                 if(c == '|' && peek() == '|'){
                   while(curr() != '\n')
-                  tokenstream.push_back("OR");
+                  tokenstream["OR"] = "||";
                 }else{
-                  tokenstream.push_back("PIPE");
-
+                  tokenstream["PIPE"]=c;
                 }
+              case ';':
+                tokenstream["EOL"] = c;
+              case 'o':
+                if(c == 'o'&& peek() == 'u'){
+                  if (c == 'u' && peek() == 't'){
+                    while(curr()!= '\n')
+                    tokenstream["PRINT_STATEMENT"] = "out";
+                  }
+                }
+
+              
               default:
                 Errors::UnknownToken(c, line);
               
