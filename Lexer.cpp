@@ -11,6 +11,7 @@ std::vector<std::string> tokenstream;
 int nums[10] = {0,1,2,3,4,5,6,7,8,9};
 int Lexer::mainLexer(){
     int line = 0;
+    std::string reserved[14] = {"out","get","if", "elsif", "els", "do", "while", "true", "false", "func", "i32", "str", "char","null"}; // and will be && and or will be ||
     int placeholder = 0;
     std::ifstream pie_file("tests.pie");
     std::string tp;
@@ -118,11 +119,43 @@ int Lexer::mainLexer(){
               case '\t':
                 continue;
               
+              case '(':
+                tokenstream.push_back("LPAREN");
+              case ')':
+                tokenstream.push_back("RPAREN");
+              case  '[':
+                tokenstream.push_back("RBRACKET");
+              case ']':
+                tokenstream.push_back("LBRACKET");
+              case '{':
+                tokenstream.push_back("LCURLY");
+              case '}':
+                tokenstream.push_back("RCURLY");
+              case '<':
+                tokenstream.push_back("LESS_THAN");
+              case '>':
+                tokenstream.push_back("LARGER_THAN");
+
+              case '&':
+                if(c == '&' && peek() == '&'){
+                  while(curr() != '\n')i++;
+                  tokenstream.push_back("AND");
+                }else{
+                  tokenstream.push_back("ANDSYMBOL");
+                }
+              case '|':
+                if(c == '|' && peek() == '|'){
+                  while(curr() != '\n')
+                  tokenstream.push_back("OR");
+                }else{
+                  tokenstream.push_back("PIPE");
+
+                }
               default:
                 Errors::UnknownToken(c, line);
               
 
-            }
+            } 
         }
         // if()
         // std::cout.flush();
