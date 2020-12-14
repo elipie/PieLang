@@ -1,0 +1,8 @@
+func sqrt(num) -> i32{
+  
+  @ num ** 0.5;
+}
+
+func trig(num) {
+  // nothing
+}
