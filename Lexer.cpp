@@ -10,12 +10,13 @@ std::vector<std::string> tokenstream;
 
 int nums[10] = {0,1,2,3,4,5,6,7,8,9};
 int Lexer::mainLexer(){
-
-
+    int line = 0;
+    int placeholder = 0;
     std::ifstream pie_file("tests.pie");
     std::string tp;
     // std::string code;
     while(getline(pie_file, tp)){
+       
         code += tp;
         code += '\n';
         /*      
@@ -23,7 +24,9 @@ int Lexer::mainLexer(){
         */
     }
 
+
     for (; i < code.size(); i++) {
+        
         char c = code[i];
         std::cout << c << std::endl;
         if(c == '/' && peek() == '/') {
@@ -46,6 +49,9 @@ int Lexer::mainLexer(){
                 continue;
               case '\n':
                 continue;
+              case '\r':
+                continue;
+
               case 'a':
               case 'b':
               case 'c':
@@ -96,20 +102,24 @@ int Lexer::mainLexer(){
               case 'Y':
               case 'Z':
                 tokenstream.push_back("INITI");
-              case 1:
-              case 0:
-              case 2:
-              case 3:
-              case 4:
-              case 5:
-              case 6:
-              case 7:
-              case 8:
-              case 9:
-                tokenstream.push_back("ONE_NUMBER");
-
+              
+              //case 1:
+              //case 0:
+              //case 2:
+              //case 3:
+              //case 4:
+              //case 5:
+              //case 6:
+              //case 7:
+              //case 8:
+              //case 9:
+                //tokenstream.push_back("ONE_NUMBER");
+              
+              case '\t':
+                continue;
+              
               default:
-                Errors::UnknownToken(c, 0);
+                Errors::UnknownToken(c, line);
               
 
             }
