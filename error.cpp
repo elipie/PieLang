@@ -29,5 +29,6 @@ namespace Errors{
         std::cout << "ParserError: On line " << line << ".\n"<<msg;
         return 1;
     }
+    
 
 };
