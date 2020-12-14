@@ -149,13 +149,13 @@ int Lexer::mainLexer(){
                   tokenstream.push_back("OR");
                 }else{
                   tokenstream.push_back("PIPE");
-                  
+
                 }
               default:
                 Errors::UnknownToken(c, line);
               
 
-            }
+            } 
         }
         // if()
         // std::cout.flush();
