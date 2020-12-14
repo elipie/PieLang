@@ -149,8 +149,10 @@ int Lexer::mainLexer(){
                   tokenstream.push_back("OR");
                 }else{
                   tokenstream.push_back("PIPE");
-
+              case ';':
+                tokenstream.push_back("EOL");
                 }
+              
               default:
                 Errors::UnknownToken(c, line);
               
