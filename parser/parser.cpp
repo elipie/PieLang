@@ -1,5 +1,5 @@
 #include <iostream>
-// #include "Lexer.h"
+#include "../Lexer.h"
 
 
 namespace Pie{
