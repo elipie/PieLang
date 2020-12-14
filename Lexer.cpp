@@ -15,6 +15,7 @@ int nums[10] = {0,1,2,3,4,5,6,7,8,9};
 int Lexer::mainLexer(){
     Dict tokenstream;
     int line = 0;
+    
     std::string reserved[14] = {"out","get","if", "elsif", "els", "do", "while", "true", "false", "func", "i32", "str", "char","null"}; // and will be && and or will be ||
     int placeholder = 0;
     std::ifstream pie_file("tests.pie");
@@ -172,6 +173,12 @@ int Lexer::mainLexer(){
 
             } 
         }
+      for(auto& k_v: tokenstream){
+        std::visit(
+            [](auto& value){std::cout << "\n" << value << '\n';},
+            k_v.second // k_v.first to print all keys in d
+        );
+    }  
         // if()
         // std::cout.flush();
     }
