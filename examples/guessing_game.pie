@@ -1,0 +1,17 @@
+use random 
+number = random.int(1,100);
+numGuesses = 0;
+guess = get "What is your guess? " ;
+do{
+  if(guess > number){
+     out "Too large!";
+     numGuesses++;
+     get "> "
+   }
+   elsif(guess < number){
+     out "Too small";
+     
+     numGuesses++;
+     get "> "
+   els{
+     out "You got it! With "+numGuesses+" number of guesses!";

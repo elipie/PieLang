@@ -1,9 +1,15 @@
 # PieLang
 Pie language, interpreted, easy to learn, and has a similar C++ & Ruby syntax.
 
+
 # Warning
 Pie is still under development so you *will* encounter bugs. 
 This is also my first *official* language that I have ever made!
+
+# About
+My last name *piechocki* starts with **Pie**. So, I decided to turn everything around in my life to *pie*. Pie is yummy, and has a ring to it(i think lol). So then came along the age of language development. I decided to learn C++ and create a language called *Pie*. This is a fun excersise that helps me grow my knowledge of C++! I hope people can use Pie all around the world!
+
+
 
 # An example syntax
 ```cpp
