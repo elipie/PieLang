@@ -15,7 +15,7 @@ int nums[10] = {0,1,2,3,4,5,6,7,8,9};
 int Lexer::mainLexer(){
     Dict tokenstream;
     int line = 0;
-    
+    int pmakeSurePlease = 0;
     std::string reserved[14] = {"out","get","if", "elsif", "els", "do", "while", "true", "false", "func", "i32", "str", "char","null"}; // and will be && and or will be ||
     int placeholder = 0;
     std::ifstream pie_file("tests.pie");
@@ -107,6 +107,20 @@ int Lexer::mainLexer(){
               case 'X':
               case 'Y':
               case 'Z':
+                while( c != ' '){
+                  pmakeSurePlease++;
+                  // explaination: notice: it starts when it sees a character then adds it to the array. 
+
+
+                  
+                  std::string holder[100000] = {};
+                  holder[pmakeSurePlease] = c;
+                  // get whole string:
+                  for(int i = 0; i++;){
+                    // holder[i]
+                  }
+                }
+                
                 //std::string full_string = 
                 tokenstream["INITI"] = c;
               
@@ -185,6 +199,9 @@ int Lexer::mainLexer(){
     
     return 0;
 }
+//char Lexer::prev(){
+  //  return code[i-1];
+//}
 
 char Lexer::peek() {
     return code[i+1];
