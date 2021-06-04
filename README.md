@@ -40,3 +40,5 @@ func add(a,b) -> i32{
  add(1,2);
  
 ```
+
+Hello everyone, I am back from my long break of coding. I will mostly be working on PieLang in IDE's this weekend, so you won't see a lot of github pushes.
