@@ -41,6 +41,5 @@ struct Lexer{
     char curr();
 };
 
-int stringify(int intorsomething);
 
 #endif
