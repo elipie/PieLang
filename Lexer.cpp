@@ -8,6 +8,7 @@
 #include <vector>
 #include <map>
 #include <variant>
+#include <regex>
 //std::vector<std::string> tokenstream;
 typedef std::map<std::variant<int, std::string>, std::variant<int, std::string>> Dict;
 
@@ -72,7 +73,6 @@ int Lexer::mainLexer(){
               case 'l':
               case 'm':
               case 'n':
-              
               case 'p':
               case 'q':
               case 'r':
@@ -110,16 +110,18 @@ int Lexer::mainLexer(){
                 //std::string full_string = 
                 tokenstream["INITI"] = c;
               
-              //case 1:
-              //case 0:
-              //case 2:
-              //case 3:
-              //case 4:
-              //case 5:
-              //case 6:
-              //case 7:
-              //case 8:
-              //case 9:
+              case '1':
+              case '0':
+              case '2':
+              case '3':
+              case '4':
+              case '5':
+              case '6':
+              case '7':
+              case '8':
+              case '9':
+              default:
+                Errors::UnknownToken(c, line);
                 //tokenstream.push_back("ONE_NUMBER");
               
               case '\t':
@@ -158,17 +160,11 @@ int Lexer::mainLexer(){
                 }
               case ';':
                 tokenstream["EOL"] = c;
-              case 'o':
-                if(c == 'o'&& peek() == 'u'){
-                  if (c == 'u' && peek() == 't'){
-                    while(curr()!= '\n')
-                    tokenstream["PRINT_STATEMENT"] = "out";
-                  }
-                }
+              
+              }
 
               
-              default:
-                Errors::UnknownToken(c, line);
+
               
 
             } 
@@ -183,8 +179,7 @@ int Lexer::mainLexer(){
         // std::cout.flush();
     }
     
-    return 0;
-}
+
 
 char Lexer::peek() {
     return code[i+1];
